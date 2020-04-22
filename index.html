@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/main.css">
+    <script src = "https://kit.fontawesome.com/aeacf9ae6e.js"></script>
+    <script src = "public/script.js"></script>
+    <title>Main</title>
+</head>
+<body>
+   <div class = "video-container">
+       <video autoplay loop muted>
+           <source src = "video/video7.mp4" type="video/mp4">
+       </video>
+   </div>
+
+   <!--<div class= "bgm">
+       <iframe src="audio/silence.mp3" allow="autoplay" id="audio" style="display: none"></iframe>
+       <audio autoplay loop>
+           <source src = "audio/audio7.mp3" type="audio/mp3">
+       </audio>
+   </div>-->
+
+   <div class = "wrapper">
+       <div class = "sidebar" id="sidebar_content">
+            <span class="slide">
+                <a href="#" onclick="openSlideMenu()">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </span>
+            <div id="menu" class="nav">
+                <a href="#" class="close" onclick="closeSlideMenu()"><i class = "fas fa-times"></i></a>
+                <a href="#" ><i class="fas fa-list-ul"></i> Routine</a>
+                <a href="#"><i class="fas fa-home"></i> Profile</a>
+                <a href="#" class ="m-bg" onclick="openBackMenu()"><i class="fas fa-images"></i> Background</a>
+                <a href="#" class ="m-bg" onclick="openSoundMenu()"><i class="fas fa-podcast"></i> Sound</a>
+                <a href="#"><i class="fas fa-magic"></i> Effects</a>
+                <a href="#"><i class="fas fa-cog"></i> Options</a></li>
+                <a href="#"><i class="fas fa-info-circle"></i> About</a>
+
+                <!--<div class = "social_media">
+                    <a href="#"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#"><i class="fab fa-twitter-square"></i></a>
+                    <a href="#"><i class="fab fa-instagram-square"></i></a>
+                </div> -->
+            </div>
+           
+       </div>
+       <div class = "main_content">
+           <div class = "header"> Welcome!! Have a good day.</div>
+           <div class = "info">
+               Meditation
+           </div>
+       </div>
+
+       
+   </div>
+
+   <div class = 'modal-bg'>
+       <div class = 'modal-bgscreen'>
+           <h2>Background Selection</h2>
+           <form action="">
+               <div>
+                   <label for="bgvideos">You may upload your own background. <br>(ONLY IN MP4 FORMAT SUPPORTED!)</br></label>
+                   <input type="file" id="bgvideos" name="bgvideos" accept="video/mp4">
+               </div>
+               <div>
+                   <button class ="bg-apply">Apply</button>
+                   <button class ="bg-cancel" onclick="closeBackMenu()">Cancel</button>
+               </div>
+           </form>
+       </div>
+
+       <div class = 'modal-bgsound'>
+           <h2>Sounds
+            <div>
+                <input type="checkbox" name = "sound-control">
+            </div>
+           </h2>
+           <form action="">
+               <div>
+                   <label for="bgsounds">You may also upload sounds on your PC <br>(ONLY IN MP3 FORMAT SUPPORTED!)</br></label>
+                   <input type="file" id="bgsounds" name="bgsounds" accept="audio/mp3">
+               </div>
+               <div>
+                <button class ="sd-apply">Apply</button>
+                <button class ="sd-cancel" onclick="closeSoundMenu()">Cancel</button>
+            </div>
+           </form>
+       </div>
+   </div>
+</body>
+</html>
