@@ -22,6 +22,7 @@ Current achievements:
 
 Ongoing tasks:
 -Modals for other configurations.
+-Clashes between modals.
 -Internal timers, alarm sounds for end of relaxation.
 -Effects like breath modulation, inspired from Bejewelled 3 from PopCap Games, Inc.
 -Database settings.
