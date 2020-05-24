@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src = "https://kit.fontawesome.com/aeacf9ae6e.js"></script>
+    
+
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <title>Main</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+   <div class = "video-container" >
+       <video id = "wallpaper" autoplay = "true" loop = "true" muted = "true">
+           <source id = "video-source" src = "$" type="video/mp4" />
+       </video>
+   </div>
+
+   <!--<iframe src="audio/silence.mp3" allow="autoplay" id="audio" style="display: none"></iframe> -->
+   <audio class="bgm" id = "bgm" autoplay="true" loop="true" muted="true" volume="0.5">
+       <source id = "sound-source" src = "$" type="audio/mp3" />
+    </audio>
+
+   <div class = "wrapper">
+       <div class = "sidebar" id="sidebar_content">
+            <span class="slide">
+                <a href="#" onclick="openSlideMenu()">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </span>
+            <div id="menu" class="nav">
+                <a href="#" class="close" onclick="closeSlideMenu()"><i class = "fas fa-times"></i></a>
+                <a href="#routine" rel="modal:open"><i class="fas fa-list-ul"></i> Routine</a>
+                <a href="#profile" rel="modal:open" class ="m-lg"><i class="fas fa-home"></i> Profile</a>
+                <a href="#background" rel="modal:open" class ="m-bg"><i class="fas fa-images"></i> Background</a>
+                <a href="#sound" rel="modal:open" class ="m-sd"><i class="fas fa-podcast"></i> Sound</a>
+                <a href="#effects" rel="modal:open"><i class="fas fa-magic"></i> Effects</a>
+                <a href="#options" rel="modal:open"><i class="fas fa-cog"></i> Options</a>
+                <a href="#about" rel="modal:open"><i class="fas fa-info-circle"></i> About</a>
+
+                <!--<div class = "social_media">
+                    <a href="#"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#"><i class="fab fa-twitter-square"></i></a>
+                    <a href="#"><i class="fab fa-instagram-square"></i></a>
+                </div> -->
+            </div>
+           
+       </div>
+       <div class = "main_content">
+           <div class = "header"> Welcome <spam id="user">$</spam>!! Have a good day.</div>
+           <div class = "info">
+            <br>Meditation is a practice where an individual uses a technique – such as mindfulness, or focusing the mind on a particular object, thought, or activity – to train attention and awareness, and achieve a mentally clear and emotionally calm and stable state.
+            Scholars have found meditation difficult to define, as practices vary both between traditions and within them.</br>
+
+            <br>Meditation has been practiced since 1500 BCE antiquity in numerous religious traditions, often as part of the path towards enlightenment and self realization. The earliest records of meditation (Dhyana), come from the Hindu traditions of Vedantism. 
+            Since the 19th century, Asian meditative techniques have spread to other cultures where they have also found application in non-spiritual contexts, such as business and health.</br>
+            
+            <br>Meditation may be used with the aim of reducing stress, anxiety, depression, and pain, and increasing peace, perception, self-concept, and well-being. Meditation is under research to define its possible health (psychological, neurological, and cardiovascular) and other effects.</br>
+           </div>
+       </div>
+   </div>
+
+   <div id = "routine" class = "modal">
+       <p>Sorry, Currently not implemented.</p>
+   </div>
+
+
+   <div id = "profile" class = "modal">
+       <h2>Profile</h2>
+       <br>Username: <spam id="user-profile">$</spam></br>
+       <br>E-mail: <spam id="e-mail">$</spam></br>
+       <button type = "submit" class ="apply" id="pro-apply">Log Out</button>
+   </div>
+
+   <div id = "background" class = "modal">
+       <h2>Background Selection</h2>
+       <form action="/admin" method="GET">
+           <div>
+               <label for="bgdefault">Choose from default wallpapers:</label>
+               <select name="sysbg" id="syswallpaper">
+                   <option value="0">--Select--</option>
+                   <option value="1">Wallpaper 1</option>
+                   <option value="2">Wallpaper 2</option>
+                   <option value="3">Wallpaper 3</option>
+                   <option value="4">Wallpaper 4</option>
+                   <option value="5">Wallpaper 5</option>
+                   <option value="6">Wallpaper 6</option>
+                   <option value="7">Wallpaper 7</option>
+               </select>
+               <br></br>
+               <label for="bgvideos">You may also upload your own dynamic wallpaper. <br>(ONLY IN MP4 FORMAT SUPPORTED!)</br></label>
+               <input type="file" id="bgvideos" name="bgvideos" accept="video/mp4" onchange = "previewFile('video')"/>
+            </div>
+            <div>
+                <button class ="apply" id="bg-apply">Apply</button>
+            </div>
+        </form>
+   </div>
+
+   <div id = "sound" class = "modal">
+       <h2>Sounds</h2>
+       <div>
+           <h3>Switch <input type="checkbox" name = "sound-switch" id="soundswitch"/> Volume <input type="range" name = "sound-volume" id="volume" max="100" min="0" step="1"/> </h3>
+        </div>
+        <form action="/admin" method="GET">
+            <div>
+                <label for="sddefault">Choose from default sounds:</label>
+                <select name="syssd" id="syssound">
+                   <option value="0">--Select--</option>
+                   <option value="1">Sound 1</option>
+                   <option value="2">Sound 2</option>
+                   <option value="3">Sound 3</option>
+                </select>
+               <br></br>
+                <label for="bgsounds">You may also upload sounds on your PC. <br>(ONLY IN MP3 FORMAT SUPPORTED!)</br></label>
+                <input type="file" id="bgsounds" name="bgsounds" accept="audio/mp3" onchange = "previewFile('sound')"/>
+            </div>
+            <div>
+                <button class ="apply" id="sd-apply">Apply</button>
+            </div>
+        </form>
+    </div>
+
+    <div id = "effects" class = "modal">
+        <p>Sorry, Currently not implemented.</p>
+    </div>
+
+    <div id = "options" class = "modal">
+        <p>Sorry, Currently not implemented.</p>
+    </div>
+
+    <div id = "about" class = "modal">
+        <p>Sorry, Currently not implemented.</p>
+    </div>
+
+    <script src = "javascript/script.js"></script>
+   <!--
+   <div class = 'modal-bg'>
+       <div class = 'modal-profile'>
+           <h2>Sign in</h2>
+           <form action="">
+               <p>Username</p>
+               <input type="text" name="username" placeholder="Enter your e-mail account" />
+               <p>Password</p>
+               <input type="password" name="password" placeholder="Enter Password" />
+               <a href="#">Forget Password?</a>
+               <input type="submit" name="submit" value="Login" />
+               <input type="submit" name="cancel" onclick="closeModal('login')" value="Cancel" />
+            </form>
+            
+        </div>
+
+       <div class = 'modal-bgscreen'>
+           <h2>Background Selection</h2>
+           <form action="">
+               <div>
+                   <label for="bgvideos">You may upload your own background. <br>(ONLY IN MP4 FORMAT SUPPORTED!)</br></label>
+                   <input type="file" id="bgvideos" name="bgvideos" accept="video/mp4" />
+               </div>
+               <div>
+                   <button class ="bg-apply">Apply</button>
+                   <button class ="bg-cancel" onclick="closeModal('background')">Cancel</button>
+               </div>
+           </form>
+       </div>
+
+       <div class = 'modal-bgsound'>
+           <h2>Sounds
+            <div>
+                <input type="checkbox" name = "sound-control" />
+            </div>
+           </h2>
+           <form action="">
+               <div>
+                   <label for="bgsounds">You may also upload sounds on your PC <br>(ONLY IN MP3 FORMAT SUPPORTED!)</br></label>
+                   <input type="file" id="bgsounds" name="bgsounds" accept="audio/mp3" />
+               </div>
+               <div>
+                <button class ="sd-apply">Apply</button>
+                <button class ="sd-cancel" onclick="closeModal('sound')">Cancel</button>
+            </div>
+           </form>
+       </div>
+   </div>-->
+</body>
+</html>

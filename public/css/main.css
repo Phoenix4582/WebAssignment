@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css?family=Gotu&display=swap');
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Gotu', sans-serif;
+}
+
+body{
+    background: #f3f5f9;
+    overflow-x: hidden;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: hidden;
+}
+
+.video-container video {
+    /* Make video to at least 100% wide and tall */
+    min-width: 100%; 
+    min-height: 100%; 
+  
+    /* Setting width & height to auto prevents the browser from stretching or squishing the video */
+    width: auto;
+    height: auto;
+  
+    /* Center the video */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+.wrapper{
+    display: flex;
+    position: relative;
+}
+
+.wrapper .nav{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    opacity: 0.9;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.7s;
+}
+
+.wrapper .nav a{
+    display:block;
+    padding: 20px 30px;
+    font-size: 25px;
+    text-decoration: none;
+    color: #ccc;
+}
+
+.wrapper .nav a:hover{
+    color: #fff;
+    transition: 0.4s;
+}
+.wrapper .nav .close{
+    position: absolute;
+    top: 0;
+    right: 22px;
+    margin-left: 50px;
+    font-size: 30px;
+}
+
+.wrapper .slide a{
+    color: #ccc;
+    font-size: 30px;
+}
+
+.wrapper .slide a:hover{
+    color: #fff;
+    transition: 0.4s;
+}
+
+/*.wrapper .sidebar .nav .social_media{
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform:  translateX(-50%);
+    display: flex;
+}
+
+.wrapper .sidebar .nav .social_media a{
+    display: block;
+    width: 50px;
+    background: #4779c4;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin: 25px, 25px;
+    color: #bdb8d7;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}*/
+
+.wrapper .main_content{
+    width: 100%;
+    z-index: 1;
+    opacity: 0.75;
+    padding: 20px;
+    transition: margin-left 0.7s;
+    overflow: hidden;
+}
+
+.wrapper .main_content .header{
+    padding: 20px;
+    background: #fff;
+    color: #717171;
+    border-bottom: 1px solid #e0e4e8;
+}
+
+.wrapper .main_content .info{
+    margin: 20px;
+    color: #717171;
+    line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+    margin-bottom: 20px;
+}
+
+
+.apply {
+    background-color: rgb(173, 178, 180); 
+    border: none;
+    color: rgb(63, 209, 228);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.apply:hover {
+    background-color: rgb(63, 209, 228);
+    color: #fff;
+}
+
+input[name="sound-switch"]
+{
+    position: relative;
+    width: 80px;
+    height: 40px;
+    -webkit-appearance: none;
+    background: #c6c6c6;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+}
+
+input:checked[name="sound-switch"]
+{
+    background: #03a9f4;
+}
+
+input[name="sound-switch"]:before
+{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: 0.5s;
+}
+
+input:checked[name="sound-switch"]:before
+{
+    left: 40px;
+}
+
+input[name="sound-volume"]{
+    width: 70px;
+    height: 40px;
+    background:#666;
+}
