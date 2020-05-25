@@ -4,7 +4,7 @@ Web-tech assignment for WebTechnology in UoB.
 Members of the group: only Phoenix Yu, ho19002.
 
 ## Introduction
-This application aims at creating an atmosphertic environment for the users to relax after work or study. The background of the webpage is fully dynamic which imports .mp4 format files. The users may chose between the library provided(though not yet implemented), or files of their own. The same goes with the sounds(in .mp3 format only), however added a central switch which is by default toggled off in case of bad webpage design.
+This application, YogaOnline, is a virtual application for the users to relax and pracitce yoga and some other meditation from hard stress of work, tight focus of studying or the current COVID-19 lockdown. The background of the webpage is fully dynamic which imports .mp4 format files. The users may chose between the library provided or files of their own. The same goes with the sounds(in .mp3 format only), however added a central switch which is by default toggled off in case of bad webpage design.
 
 ## Self-Markings
 -HTML: A;
@@ -45,7 +45,7 @@ Client-wise, a template html is created for valid users and their preference sto
 ## Achievements:
 -Sidebar menu(contents may be adjusted).
 
--Modals for background and sound configuration, local audio/video file adjustment.
+-Modals for background and sound configuration, local audio/video file adjustment and audio switch and volume adjustment.
 
 -A login page for client usage, with the support of sqlite3 database to store client accounts.
 
