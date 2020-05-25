@@ -1,5 +1,5 @@
 "use strict";
-const http = require('http');
+const https = require('https');
 const fs = require('fs');
 const path = require('path');
 const sqlite3 = require("sqlite3").verbose();
@@ -14,12 +14,6 @@ const defaultVideo = "/video/video1.mp4";
 const defaultAudio = "/audio/audio1.mp3";
 
 var htmlHeader = {"Content-Type": "text/html"};
-var cssHeader = {"Content-Type": "text/css"};
-var jsHeader = {"Content-Type": "application/javascript"};
-var pngHeader = {"Content-Type": "image/png"};
-var videoHeader = {"Content-Type": "video/mp4"};
-var audioHeader = {"Content-Type": "audio/mp3"};
-var errorHeader = {"Content-Type": "text/plain"};
 var banned = [];
 let OK = 200, ERROR = 404;
 
@@ -156,6 +150,7 @@ function initWebPage(){
   app.get('/images/*',loadFile);
   app.get('/video/*',loadFile);
   app.get('/audio/*',loadFile);
+  app.get('/icon/*',loadFile);
 
   app.use(bodyParser.urlencoded({
     extended: false
@@ -187,7 +182,6 @@ function getAdmin(req, res){
     }
   });
 }
-
 
 function redirectHtml(req, res) {
   try{
