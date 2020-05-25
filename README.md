@@ -31,7 +31,7 @@ Since I did not use static images for most of the implementation apart from the 
 
 -SERVER: A-;
 
-Server-wise, although implemented cookies for backing up the preferences of the user, the server still fails for fetching data from user(see [problems](## Problems) for specific description). And the simple structure and bootstrap-less implementation requires less work for content negotiation and works on URL validation.
+Server-wise, although implemented cookies for backing up the preferences of the user, the server still fails for fetching data from user(see [problems](#Problems) for specific description). And the simple structure and bootstrap-less implementation requires less work for content negotiation and works on URL validation.
 
 -DATABASE: B+;
 
