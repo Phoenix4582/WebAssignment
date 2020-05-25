@@ -6,7 +6,7 @@ Members of the group: only Phoenix Yu, ho19002.
 ## Introduction
 This application aims at creating an atmosphertic environment for the users to relax after work or study. The background of the webpage is fully dynamic which imports .mp4 format files. The users may chose between the library provided(though not yet implemented), or files of their own. The same goes with the sounds(in .mp3 format only), however added a central switch which is by default toggled off in case of bad webpage design.
 
-## Self-Markings:
+## Self-Markings
 -HTML: A;
 
 -CSS: A;
