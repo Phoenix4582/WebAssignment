@@ -4,7 +4,7 @@ Web-tech assignment for WebTechnology in UoB.
 Members of the group: only Phoenix Yu, ho19002.
 
 ## Introduction
-This web aims at creating an atmosphertic environment for the users to relax after work or study. The background of the webpage is fully dynamic which imports .mp4 format files. The users may chose between the library provided(though not yet implemented), or files of their own. The same goes with the sounds(in .mp3 format only), however added a central switch which is by default toggled off in case of bad webpage design.
+This application aims at creating an atmosphertic environment for the users to relax after work or study. The background of the webpage is fully dynamic which imports .mp4 format files. The users may chose between the library provided(though not yet implemented), or files of their own. The same goes with the sounds(in .mp3 format only), however added a central switch which is by default toggled off in case of bad webpage design.
 
 ## Self-Markings:
 -HTML: A;
@@ -13,10 +13,15 @@ This web aims at creating an atmosphertic environment for the users to relax aft
 
 -JAVASCRIPT: A;
 
-All three above was implemented either from self-experimenting, or examples from elsewhere but retyped after full understanding.
+The features of responsive sidebar, login/administration page and modals are learned from external sources. No bootstrap was implemented but instead the work on HTML, CSS and JAVASCRIPT were learned either from self-experimenting, or examples from elsewhere but retyped after full understanding.
+
 Some of the template goes from:
 
-INSERT TEMPLATE SOURCE
+[Responsive Sidebar Tutorial](https://www.youtube.com/watch?v=wpGNFGqNfdU)
+
+[Login and Registration Form](https://www.youtube.com/watch?v=Ec1G5Hp-8Ko&t=271s)
+
+[Simple-to-implement Modals from JQuery external library](https://jquerymodal.com/)
 
 -PNG: B;
 
