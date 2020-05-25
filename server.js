@@ -10,6 +10,9 @@ const port = "3000";
 const cookieParser = require('cookie-parser');
 const sha256crypt = require('sha256crypt');
 
+const defaultVideo = "/video/video1.mp4";
+const defaultAudio = "/audio/audio1.mp3";
+
 var htmlHeader = {"Content-Type": "text/html"};
 var cssHeader = {"Content-Type": "text/css"};
 var jsHeader = {"Content-Type": "application/javascript"};
@@ -31,7 +34,12 @@ initWebPage();
 
 function initDatabase(){
   var db = openDatabase();
-  db.run('CREATE TABLE IF NOT EXISTS user(id INTEGER PRIMARY KEY AUTOINCREMENT, username varchar(100) NOT NULL UNIQUE, email varchar(100) NOT NULL UNIQUE, password varchar(500) NOT NULL)');
+  db.run(`CREATE TABLE IF NOT EXISTS user(id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    username varchar(100) NOT NULL UNIQUE, 
+    email varchar(100) NOT NULL UNIQUE, 
+    password varchar(500) NOT NULL, 
+    vid varchar(100) NOT NULL, 
+    sound varchar(100) NOT NULL)`);
   closeDatabase(db);
 }
 
@@ -39,16 +47,16 @@ function addData(username, email, password, req, res){
   var database = openDatabase();
 
   database.serialize(function() {
-    var stmt = database.prepare('INSERT INTO user(username, email, password) VALUES(?, ?, ?)');
-    stmt.run(username,email,encodePassword(password));
+    var stmt = database.prepare('INSERT INTO user(username, email, password, vid, sound) VALUES(?, ?, ?, ?, ?)');
+    stmt.run(username,email,encodePassword(password),defaultVideo,defaultAudio);
     stmt.finalize();
   });
   fs.readFile(__dirname + "/public/" + req.url + ".html", "utf8", function(err, data){
     if(err){console.log(err.message);}
     else{
       let ts = data.split("$");
-      let vidsrc = '/video/video1.mp4';
-      let audsrc = '/audio/audio1.mp3';
+      let vidsrc = defaultVideo;
+      let audsrc = defaultAudio;
       let page = ts[0] + vidsrc + ts[1] + audsrc + ts[2] + username + ts[3] + username + ts[4] + email + ts[5];
       setCookies(res, vidsrc, audsrc, username, email);
       deliver(res, htmlHeader, page);
@@ -66,13 +74,12 @@ function searchData(email, password, req, res){
         throw err;
       }else if (verifyPassword(row.password,password)){
         var user = row.username;
+        var vidsrc = row.vid;
+        var audsrc = row.sound;
         fs.readFile(__dirname + "/public/" + req.url + ".html", "utf8", function(err, data){
           if(err){console.log(err.message);}
           else{
             let ts = data.split("$");
-            let cookies = findCookie(req.headers.cookie, email).split("%");
-            let vidsrc = cookies[1];
-            let audsrc = cookies[2];
             let page = ts[0] + vidsrc + ts[1] + audsrc + ts[2] + user + ts[3] + user + ts[4] + email + ts[5];
             setCookies(res, vidsrc, audsrc, user, email);
             deliver(res, htmlHeader, page);
@@ -88,12 +95,25 @@ function searchData(email, password, req, res){
   closeDatabase(db);
 }
 
+function updateData(email, vid, sound){
+  var database = openDatabase();
+  database.serialize(function(){
+    var stmt = database.prepare(`UPDATE user 
+    SET vid = ?, sound = ? 
+    WHERE email = ? `);
+    stmt.run(vid, sound, email);
+    stmt.finalize();
+  });
+  closeDatabase(database);
+}
+
 function openDatabase(){
-  let db = new sqlite3.Database('C:/Users/light/Documents/WebTechnology/Assignment/public/db/users.db', (err) => {
+  let db = new sqlite3.Database(path.join(__dirname,'..','Assignment','public','db','users.db'), (err) => {
     if (err) {
       console.error(err.message);
+    }else{
+      console.log('Connected to the user database.');
     }
-    console.log('Connected to the user database.');
   });
   return db;
 }
@@ -117,16 +137,6 @@ function verifyPassword(password,input){
 
 function setCookies(res, video, sound, user, email){
   res.setHeader('Set-Cookie',[email+"="+user+"%"+video+"%"+sound]);
-}
-
-function findCookie(source, name){
-  let cookies = source.split(";");
-  for(var i = 0; i < cookies.length; i++){
-    if(cookies[i].includes(name)){
-      return cookies[i];
-    }
-  }
-  return null;
 }
 
 function findLastCookie(source){
@@ -167,10 +177,11 @@ function getAdmin(req, res){
       let cookies = req.headers.cookie.split(";");
       let target = findLastCookie(cookies);
       let user = target.split("%")[0].split("=")[1];
-      let email = target.split("%")[0].split("=")[0];
+      let email = target.split("%")[0].split("=")[0].split(" ")[1];
       let vidsrc = target.split("%")[1];
       let audsrc = target.split("%")[2];
       let page = ts[0] + vidsrc + ts[1] + audsrc + ts[2] + user + ts[3] + user + ts[4] + email + ts[5];
+      updateData(email,vidsrc, audsrc);
       setCookies(res, vidsrc, audsrc, user, email);
       deliver(res, htmlHeader, page);
     }
