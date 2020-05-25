@@ -27,7 +27,7 @@ Some of the template goes from:
 
 -SVG: B;
 
-Since I did not use static images for most of the implementation apart from the login page, I only implemented GIMP for resizing and modifying the resolution of the original image. SVG is basically implemented on the sidebar of admin.html from Font Awesome website.
+Since I did not use static images for most of the implementation apart from the login page, I only implemented GIMP for resizing and modifying the resolution of the original image. SVG is basically implemented on the sidebar of admin.html from Font Awesome website and the favicon of the webpage.
 
 -SERVER: A-;
 
