@@ -53,7 +53,7 @@ Client-wise, a template html is created for valid users and their preference sto
 
 -Implementation of cookies to temporarily store the last state of a user interface.
 
--Password security implementing SHA256.
+-Password security implementing SHA-256 cryptographic hash algorithm.
 
 -Operational performance using node/express.js.
 
@@ -64,7 +64,7 @@ Client-wise, a template html is created for valid users and their preference sto
 
 -Timer, breath modulator interface, and special effects not implemented, due to the work on server side.
 
--Certificate not made, only SHA256 password hashing is made for securing data.
+-Certificate not made, only SHA-256 password hashing is made for securing data.
 
 ## Conclusion:
 Handling the project alone among other assignments and learning is challenging but rewarding. 
