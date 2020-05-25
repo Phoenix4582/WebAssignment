@@ -23,21 +23,21 @@ Some of the template goes from:
 
 [Simple-to-implement Modals from JQuery external library](https://jquerymodal.com/)
 
--PNG: B;
+-PNG: A;
 
 -SVG: B;
 
-Since I did not use static images for most of the implementation apart from the login page, I only implemented GIMP for resizing and modifying the resolution of the original image. SVG is basically implemented on the sidebar of admin.html from Font Awesome website and the favicon of the webpage.
+Since I did not use static images for most of the implementation apart from the login page, I only implemented GIMP for resizing and modifying the resolution of the original image. SVG is basically implemented on the sidebar of admin.html from Font Awesome website, and the synthesis of SVG and PNG for the favicon of the webpage.
 
--SERVER: A-;
+-SERVER: A;
 
 Server-wise, although implemented cookies for backing up the preferences of the user, the server still fails for fetching data from users' local storage(see [problems](#Problems) for specific description). And the simple structure and bootstrap-less implementation requires less work for content negotiation and works on URL validation.
 
--DATABASE: B+;
+-DATABASE: B;
 
 Some security work on database and prepared statements are implemented for database-related application security.
 
--DYNAMIC PAGE: A-;
+-DYNAMIC PAGE: A;
 
 Client-wise, a template html is created for valid users and their preference storage.
 
