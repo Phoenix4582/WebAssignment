@@ -31,7 +31,7 @@ Since I did not use static images for most of the implementation apart from the 
 
 -SERVER: A-;
 
-Server-wise, although implemented cookies for backing up the preferences of the user, the server still fails for fetching data from user(see [problems](#Problems) for specific description). And the simple structure and bootstrap-less implementation requires less work for content negotiation and works on URL validation.
+Server-wise, although implemented cookies for backing up the preferences of the user, the server still fails for fetching data from users' local storage(see [problems](#Problems) for specific description). And the simple structure and bootstrap-less implementation requires less work for content negotiation and works on URL validation.
 
 -DATABASE: B+;
 
@@ -68,6 +68,6 @@ Client-wise, a template html is created for valid users and their preference sto
 -Certificate not made, only SHA256 password hashing is made for securing data.
 
 ## Conclusion:
-Handling the project alone is challenging but rewarding. For client side, the project is unconventional in that it heavily implement the usage of large files such as videos and audio. And currently by default, users do NOT wish to hear unwanted or uncontrollable audios when opening the webpage, considerations on audio and video without explicit player is another challenge from testing alone in client side, to interation from server to client. For the server, layers of security issues has to be reconsidered for less storage and priviledge usage of client interaction. 
+Handling the project alone is challenging but rewarding. For client side, the project is unconventional in that it heavily implement the usage of large files such as videos and audios. And currently by default, users do NOT wish to hear unwanted or uncontrollable audios when opening the webpage, considerations on audio and video without explicit player is another challenge from testing alone in client side, to interation from server to client. For the server, layers of security issues has to be reconsidered for less storage and priviledge usage of client interaction. 
 
 Services provided contains much potentials for the project. The main body can not only be just simple texts, but also interface with small modules, or just leave the body blank by default. The sidebar may add extra features like the intended breath modulator, timer, routine selection, alarm, special-effect selection and access for feedback from users.
