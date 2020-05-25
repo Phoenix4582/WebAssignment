@@ -1,36 +1,63 @@
 # WebAssignment
-Prototype of web-tech assignment for WebTechnology in UoB.
+Web-tech assignment for WebTechnology in UoB.
 
 Members of the group: only Phoenix Yu, ho19002.
 
-Introduction
+##Introduction
+This web aims at creating an atmosphertic environment for the users to relax after work or study. The background of the webpage is fully dynamic which imports .mp4 format files. The users may chose between the library provided(though not yet implemented), or files of their own. The same goes with the sounds(in .mp3 format only), however added a central switch which is by default toggled off in case of bad webpage design.
 
-This web aims at creating an atmosphertic environment for the users to relax after work or study.\
-The background of the webpage is fully dynamic which imports .mp4 format files.\
-The users may chose between the library provided(though not yet implemented), or files of their own.\
-The same goes with the sounds(in .mp3 format only), however added a central switch which is by default toggled off in case of bad webpage design.
+##Self-Markings:
+-HTML: A;
 
-User profiles, special effects and other implementations are still ongoing.
+-CSS: A;
 
-Database for the webpage stores the directory of users' previously used background, sounds, timer-configurations, etc.\
-This includes static file directory from internal library or external directories on user's PC.\
-If failed to find from external directory, the web would automatically switch to the content in the library while pop-up a warning.
+-JAVASCRIPT: A;
 
-Current achievements:\
--Sidebar menu(contents may be adjusted)\
--Modals for background and sound configuration
+All three above was implemented either from self-experimenting, or examples from elsewhere but retyped after full understanding.
+Some of the template goes from:
 
-Ongoing tasks:\
--Modals for other configurations.\
--Clashes between modals.\
--Internal timers, alarm sounds for end of relaxation.\
--Effects like breath modulation, inspired from Bejewelled 3 from PopCap Games, Inc.\
--Database settings.
+INSERT TEMPLATE SOURCE
 
-Major breach:\
-Performance of this webpage has NOT been evaluated through node.js.\
-May due to the abundant file formats the server.js should implement.\ 
-ONLY BASIC HTML WITHOUT CSS EFFECTS OR JAVASCRIPT LOGIC CAN BE SEEN WITH CURRENT NODE.JS SETTINGS.\
-WHEN HTML FILE IS OPENED DIRECTLY WITH GOOGLE CHROME, THE EFFECTS PERFORM AS EXPECTED.\
-THIS PROVED TO BE THE CURRENTLY BIGGEST PROBLEM OF THE ASSIGNMENT.\
-RE-DESIGNS ON SERVER.JS REQUIRED.
+-PNG: B;
+
+-SVG: B;
+
+Since I did not use static images for most of the implementation apart from the login page, I only implemented GIMP for resizing and modifying the resolution of the original image. SVG is basically implemented on the sidebar of admin.html from Font Awesome website.
+
+-SERVER: A-;
+
+Server-wise, although implemented cookies for backing up the preferences of the user, the server still fails for fetching data from user(see problems for specific description). And the simple structure and bootstrap-less implementation requires less work for content negotiation and works on URL validation.
+
+-DATABASE: B+;
+
+Some security work on database and prepared statements are implemented for database-related application security.
+
+-DYNAMIC PAGE: A-;
+
+Client-wise, a template html is created for valid users and their preference storage.
+
+
+##Achievements:
+-Sidebar menu(contents may be adjusted).
+
+-Modals for background and sound configuration, local audio/video file adjustment.
+
+-A login page for client usage, with the support of sqlite3 database to store client accounts.
+
+-Dynamic page demonstration based on user account and preference.
+
+-Implementation of cookies to temporarily store the last state of a user interface.
+
+-Password security implementing SHA256.
+
+-Operational performance using node/express.js.
+
+-Since the web does not use any bootstrap, there is not much version issue on implementing the webpage.
+
+
+##Problems:
+-Unable to fetch local audio/video files as planned. Due to the security protocol that when fetching data from local storage, the absolute path of the file should NEVER be shown. Attempts of using Data URLs have made but failed due to the fact that Data URLs of audio and video types are too large for solely implememnting cookies and database. Local storage may prove as an alternative but not the ideal solution since it serves as duplicating audio/video files to the local client, making it storage-demanding.
+
+-Timer, breath modulator interface, and special effects not implemented, due to the work on server side.
+
+-Certificate not made, only SHA256 password hashing is made for securing data.
