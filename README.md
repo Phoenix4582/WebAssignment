@@ -6,6 +6,19 @@ Members of the group: only Phoenix Yu, ho19002.
 ## Introduction
 This application, YogaOnline, is a virtual application for the users to relax and pracitce yoga and some other meditation from hard stress of work, tight focus of studying or the current COVID-19 lockdown. The background of the webpage is fully dynamic which imports .mp4 format files. The users may chose between the library provided or files of their own. The same goes with the sounds(in .mp3 format only), however added a central switch which is by default toggled off in case of bad webpage design.
 
+## Prerequisites
+This application uses the following external libraries:
+
+[sqlite3]();
+
+[body-parser]();
+
+[cookie-parser]();
+
+[sha256encrypt]();
+
+Users are required to install the packages for successfully running the application.
+
 ## Self-Markings
 -HTML: A;
 
