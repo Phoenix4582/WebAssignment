@@ -9,13 +9,13 @@ This application, YogaOnline, is a virtual application for the users to relax an
 ## Prerequisites
 This application uses the following external libraries:
 
-[sqlite3]();
+[sqlite3](https://www.npmjs.com/package/sqlite3);
 
-[body-parser]();
+[body-parser](https://www.npmjs.com/package/body-parser);
 
-[cookie-parser]();
+[cookie-parser](https://www.npmjs.com/package/cookie-parser);
 
-[sha256encrypt]();
+[sha256crypt](https://www.npmjs.com/package/sha256crypt);
 
 Users are required to install the packages for successfully running the application.
 
