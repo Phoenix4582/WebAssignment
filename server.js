@@ -102,7 +102,7 @@ function updateData(email, vid, sound){
 }
 
 function openDatabase(){
-  let db = new sqlite3.Database(path.join(__dirname,'..','Assignment','public','db','users.db'), (err) => {
+  let db = new sqlite3.Database(path.join(__dirname,'.','public','db','users.db'), (err) => {
     if (err) {
       console.error(err.message);
     }else{
